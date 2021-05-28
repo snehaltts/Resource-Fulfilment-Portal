@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:fragment="layout(content)">
+
+<head>
+ <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+   <meta charset="UTF-8">
+  
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link th:rel="stylesheet" th:href="@{/css/bootstrap.min.css} " />
+    <link th:rel="stylesheet" th:href="@{/css/style.css}" />
+    <script th:inline="javascript">
+    
+$(function(){
+
+	
+	$("#plant").autocomplete({
+		source: "skillnameautocomplete" ,
+				minlength: 1,
+				select: function(event, ui) {
+					this.value = ui.item.label;
+					$("#Plant_ID").val(ui.item.value);
+					return false;
+				}
+	});
+	});
+
+    
+    </script>
+
+		 <script th:inline="javascript">
+  function myFunction() {
+	
+		 var x=document.getElementById('plant').value;
+		
+		if(document.getElementById('add').value!='')
+		 x=x+","+document.getElementById('add').value
+ 
+ document.getElementById('plant').value='' ; 
+ document.getElementById('add').value=x ;
+
+ }
+  </script>
+ 
+
+<script src="/js/script.js"></script>
+<style>
+.text-center {
+  /* Set rules to fill background */
+  min-height: 100%;
+  min-width: 1024px;
+	
+  /* Set up proportionate scaling */
+  width: 80%;
+  height: auto;
+	
+  /* Set up positioning */
+  position: fixed;
+  top: 0;
+  left: 10%;
+}
+</style>
+</head>
+
+
+<!--    Navbar-->
+<nav class="navbar navbar-expand-lg navbar-dark  bg-primary">
+
+
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+       <ul class="navbar-nav navbar-left"> 
+            <li class="nav-item "><a class="nav-link" th:href="@{/checkuser?lemail=ishanrawat59%40gmail.com&lpass=1234567}">Back
+					<span class="sr-only">(current)</span>
+			</a></li></ul>
+			           <ul class="navbar-nav ml-auto text-uppercase">
+			            <li class="nav-item"><a class="nav-link" th:href="@{/}">
+					<span class="sr-only">(current)</span>
+			</a></li>
+			<a href="#"><i sec:authorize="isAuthenticated()"><a th:href="@{/logout}"><i class="btn btn-primary add_cust">Logout</a></i> 
+
+
+
+        </ul>
+
+    </div>
+</nav>
+<!--    End of Navbar-->
+ <section class="banner d-flex justify-content-center align-items-center">
+        <div class="text-center"> <h1 class="font-weight-bold"><h3>--Manager--</h3>
+        <br>
+        <br><br><br><br>
+            <h1 class="font-weight-bold"><h1>Generate RRF</h1>
+            <br>
+           
+	<div class="container text-center">
+<br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+ 	
+ <form action="/rrfprocess" style="text-align: cenenterter;">
+ 	Enter RRF No.<input type="number" name="rrfno" th:required="required" oninvalid="this.setCustomValidity('Enter Rrf no Here')"   oninput="this.setCustomValidity('')">
+ 	<br><br>
+ 	
+      Experience &nbsp;&nbsp;&nbsp;<input type="number" name="exp" th:required="required" oninvalid="this.setCustomValidity('Enter experience Here')"   oninput="this.setCustomValidity('')">
+     <br><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;<label> Enter Skills</label>&nbsp;&nbsp;&nbsp;
+	<input type="text" name="skills"  id="plant" placeholder="Enter skills"  >
+<button type="button" class="btn btn-danger" onclick="myFunction()">Add skill</button>
+<br><br>
+ &nbsp;  <label> Added Skills</label>&nbsp;
+	<input type="text" name="added" id="add" readonly th:required="required" oninvalid="this.setCustomValidity('Please add min 1 skil')"   oninput="this.setCustomValidity('')">
+	<br>
+	<br>
+	
+    
+    </center>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" class="btn btn-success "  value="Submit">
+</form>
+
+
+<script th:src="@{/js/script.js}"></script>
+<script th:src="@{/js/jquery-3.5.1.slim.min.js}"></script>
+<!-- <script th:src="@{/js/bootstrap.min.js}"></script> -->
+<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+
+</body>
+
+</html>

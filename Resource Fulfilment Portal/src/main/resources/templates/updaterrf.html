@@ -1,0 +1,103 @@
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link th:rel="stylesheet" th:href="@{/css/bootstrap.min.css} " />
+    <link th:rel="stylesheet" th:href="@{/css/style.css}" />
+    
+    
+</head>
+
+
+<!--    Navbar-->
+<nav class="navbar navbar-expand-lg navbar-dark  bg-primary">
+
+
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+       <ul class="navbar-nav navbar-left"> 
+            <li class="nav-item "><a class="nav-link" th:href="@{/requirement}">Back
+					<span class="sr-only">(current)</span>
+			</a></li></ul>
+			           <ul class="navbar-nav ml-auto text-uppercase">
+			            <li class="nav-item "><a class="nav-link" th:href="@{/}">HOME
+					<span class="sr-only">(current)</span>
+			</a></li>
+			
+
+
+
+        </ul>
+
+    </div>
+</nav>
+<!--    End of Navbar-->
+
+    <section class="banner d-flex justify-content-center align-items-center">
+ 	<div class="container text-center">
+		<div>
+			<h1> </h1>
+		</div>
+		<form th:action="@{/save2}" th:object="${lia}" 
+			method="post" style="max-width: 600px; margin: 0 auto;">
+		<div class="m-3">
+			<div class="form-group row">
+				<label class="col-4 col-form-label" >S no</label>
+				
+				<div class="col-8">
+					<input type="number" name="Sno" class="form-control" th:value="${emp.Sno}" th:required="required" oninvalid="this.setCustomValidity('Enter Sno Here')"   oninput="this.setCustomValidity('')"/>
+				</div>
+			</div>
+			
+			<div class="form-group row">
+				<label class="col-4 col-form-label">Experience</label>
+				<div class="col-8">
+					<input type="number" name="experience" class="form-control" 
+							th:value="${emp.experience}"th:required="required" oninvalid="this.setCustomValidity('Enter experience Here')"   oninput="this.setCustomValidity('')" />
+				</div>
+			</div>
+			
+			<div class="form-group row">
+				<label class="col-4 col-form-label">Skills</label>
+				<div class="col-8">
+					<input type="text" name="skills" class="form-control" th:value="${emp.skills}"
+							th:required="required" oninvalid="this.setCustomValidity('Enter skills Here')"   oninput="this.setCustomValidity('')"/>
+				</div>
+			</div>
+			
+			
+			
+			
+			
+			
+			<div>
+				<button type="submit" class="btn btn-primary">Submit</button> 
+			</div>
+		</div>
+		</form>
+       
+    </section>
+    <center><div class="w3-row-padding w3-padding-64 w3-container">
+  <div class="w3-content">
+    <div class="w3-twothird">
+
+  
+
+
+ 
+
+<script th:src="@{/js/script.js}"></script>
+<script th:src="@{/js/jquery-3.5.1.slim.min.js}"></script>
+<!-- <script th:src="@{/js/bootstrap.min.js}"></script> -->
+<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+
+</body>
+
+</html>

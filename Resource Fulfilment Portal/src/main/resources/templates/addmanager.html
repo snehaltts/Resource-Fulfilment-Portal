@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:fragment="layout(content)">
+<head>
+ <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+ <link th:rel="stylesheet" th:href="@{/css/bootstrap.min.css} " />
+    <link th:rel="stylesheet" th:href="@{/css/style.css}" />
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+ <section class="banner">
+<nav class="navbar navbar-expand-lg navbar-dark  bg-primary">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+       <ul class="navbar-nav navbar-left"> 
+            <li class="nav-item "><a class="nav-link" th:href="@{/login1}">Back
+					<span class="sr-only">(current)</span>
+	</li></a>
+	
+	
+	
+
+        </ul>
+
+    </div>
+    </div>
+</nav>
+ <section class="banner">
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="container">
+    <div class="row">
+		<div class="col-md-5 col-md-offset-4">
+    		<div class="panel panel-default">
+			  	<div class="panel-heading">
+			    	<h3 class="panel-title">Manager Signup</h3>
+			 	</div>
+			  	<div class="panel-body">
+			    	<form th:action="@{/process_register1}" th:object="${user}" 
+			method="POST" >
+                    <fieldset>
+			    	  	<div class="form-group">
+			    		    <input class="form-control" placeholder="E-mail" name="email" type="text">
+			    		</div>
+			    		<div class="form-group">
+			    			<input class="form-control" placeholder="Password" name="password" type="password" value="">
+			    		</div>
+			    		<input class="btn btn-lg btn-primary btn-block" type="submit" value="Sign Up">
+			    	</fieldset>
+			      	</form>
+			      	</section>
+			    </div>
+			</div>
+		</div>
+	</div>
+</div>
